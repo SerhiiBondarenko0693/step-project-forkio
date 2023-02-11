@@ -9,6 +9,7 @@ import concat from "gulp-concat";
 import autoprefixer from "gulp-autoprefixer";
 import browsersync from "browser-sync";
 import uglify from "gulp-uglify";
+import deploy from 'gulp-gh-pages';
 
 const sass = gulpSass(dartSass);
 
@@ -85,6 +86,13 @@ const sync = () => {
     watchHTML();
     watchJs();
 }
+
+gulp.task('deploy', function () {
+    return gulp.src("./dist/**/*")
+        .pipe(deploy())
+});
+
+
 
 export const build = gulp.series(cleanDist, gulp.parallel(copyHtml, copyImgs, copyCss, copyJs));
 export const dev = gulp.series(build, sync);
