@@ -1,0 +1,32 @@
+@import "variables";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+
+}
+
+
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+}
+
+.container {
+  max-width: $widthContainer;
+  margin: 0 auto;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+

@@ -1,0 +1,157 @@
+@import "variables";
+
+.what-you-get {
+  background-color: $gray-bright;
+
+  &-content {
+    display: grid;
+    grid-template-areas:
+  "benefits benefits-title"
+  "benefits benefit-img";
+    grid-template-columns: repeat(2, 1fr);
+    padding-top: 95px;
+
+    &__benefits {
+      grid-area: benefits;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 0 49px 30px 50px;
+    }
+
+    &__benefit {
+      display: flex;
+      padding-bottom: 10px;
+
+      &:last-child {
+        padding-bottom: 25px;
+      }
+    }
+
+    &__benefits-title {
+      grid-area: benefits-title;
+      font-family: $Montserrat;
+      font-weight: $bold;
+      line-height: 50px;
+      font-size: 48px;
+      color: $main-color;
+      padding-left: 12px;
+    }
+
+    &__benefit-img {
+      width: 111px;
+      margin-right: 23px;
+      text-align: center;
+    }
+
+    &__result-img {
+      grid-area: benefit-img;
+      overflow: hidden;
+    }
+
+    &-benefit-info {
+      flex: 1;
+
+      &__title {
+        font-family: $Montserrat;
+        font-weight: $normal;
+        font-size: $middle;
+        color: $benefit-info-title;
+        line-height: 21px;
+        margin-bottom: 7px;
+      }
+
+      &__description {
+        font-family: $Montserrat;
+        font-weight: $normal;
+        color: $benefit-info-description;
+        line-height: 21px;
+        font-size: $medium;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .what-you-get {
+    background-color: $white;
+
+    &-content {
+      grid-template-areas:
+          "benefits-title"
+          "benefits"
+          "benefit-img";
+      grid-template-columns: 1fr;
+      &__benefits{
+        padding: 0 22px 76px 30px ;
+
+        &-title {
+          margin-bottom: 51px;
+          text-align: center;
+          padding-left: 0;
+        }
+      }
+
+      &__benefit{
+        & + &{
+          margin-top: 50px;
+        }
+      }
+
+      &__result-img{
+        padding-left: 61px;
+        & img{
+          width: calc(100vw - 61px);
+        }
+      }
+
+      &__benefit-img {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 480px){
+  .what-you-get-content{
+    padding-top: 50px;
+    &__benefit{
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-top: 38px;
+
+      & + &{
+        margin-top: 28px;
+      }
+
+      &-img{
+        margin-right: 0;
+        text-align: center;
+      }
+    }
+    &-benefit-info{
+      margin-top: 23px;
+      &__description{
+        min-width: 277px;
+      }
+    }
+    &__benefits{
+      padding: 0 22px 35px 22px ;
+      &-title {
+        margin: 0 32px 0;
+        font-size: 32px;
+        line-height: 38px;
+      }
+    }
+    &__result-img{
+      margin-top: 20px;
+      padding-left: 3px;
+      & img {
+        height: 381px;
+        width: auto;
+      }
+    }
+  }
+}
